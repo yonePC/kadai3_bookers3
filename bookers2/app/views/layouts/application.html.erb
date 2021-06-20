@@ -22,33 +22,32 @@
         <!--</button>-->
        <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
          <ul class="navbar-nav ml-auto">
-          <li><a class="fas fa-home nav-link text-light" href=######> Home</a></li>
-          <li><a class="fas fa-users nav-link text-light" href=######> Users</a></li>
-          <li><a class="fas fa-book-open nav-link text-light" href=######> Books</a></li>
-          <li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>
+          <% if user_signed_in? %>
+          <li>
+            <p class="fas fa-home nav-link text-light">
+             <%= link_to 'Home', user_path(current_user.id) %>
+            </p>
+          </li>
+          <li><a class="fas fa-users nav-link text-light"> Users</a></li>
+          <li><a class="fas fa-book-open nav-link text-light"> Books</a></li>
+          <li>
+            <a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" >
+            <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            </a>
+           </li>
+           <% end %>
          </ul>
         </div>
       </div>
      </nav>
-      
-    </heder>
-    
 
-     <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
+    </heder>
+
+
+
 
     <%= yield %>
-    
+
     <footer>
       <div class="container mt-5">
   	    <div class="row">
@@ -58,9 +57,9 @@
         </div>
       </div>
     </footer>
-    
-    
-    
-    
+
+
+
+
   </body>
 </html>
