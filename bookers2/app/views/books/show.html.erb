@@ -1,0 +1,31 @@
+
+
+
+   <div class="col-md-8 offset-md-1">
+  		<h2>Book detail</h2>
+  		<table class="table">
+
+  		  <tbody>
+  		   <tr>
+          <td>
+
+              <span>
+                <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
+                <%= link_to book.title, books_path(@book.id) %>
+              </span>
+          </td>
+
+
+          <td>
+            <span><%= link_to book.title, books_path(@book.id) %></span>
+          </td>
+
+
+          <td>
+            <span><%= link_to book.body, books_path(@book.id) %></span>
+            </td>
+
+         </tr>
+        </tbody>
+      </table>
+    </div>

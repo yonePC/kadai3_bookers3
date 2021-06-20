@@ -6,14 +6,15 @@ def index
 end
 
 def show
+  @book = Book.find(params[:id])
 
 end
 
 def create
-  @books = Book.new(book_image_params)
+  @books = Book.new(book_params)
   @books.user_id = current_user.id
-  @book.save
-  redirest_to books_path
+  @books.save
+  redirect_to books_path
 
 end
 
