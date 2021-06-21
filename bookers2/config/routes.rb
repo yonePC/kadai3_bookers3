@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
-  resources :books, only: [:index, :show, :create, :edit, :update, :destroy] do
+  resources :books, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :edit, :update] 
 end
 
-  resources :users, only: [:index,:show, :edit, :update]
-
-end
