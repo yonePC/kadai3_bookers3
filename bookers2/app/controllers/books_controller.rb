@@ -21,6 +21,7 @@ def create
 end
 
 def edit
+  @book = Book.find(params[:id])
 
 end
 
