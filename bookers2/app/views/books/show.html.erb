@@ -3,7 +3,10 @@
   <div class="row">
    <div class="col-md-3">
     <!--部分テンプレート-->
-    <%= render "users/userinfo", user: User.find(params[:id]) %>
+    <h2>New book</h2>
+      <%= render 'books/book', book: @newbook %>
+
+
 
 
    <div class="col-md-8 offset-md-1">
@@ -11,25 +14,32 @@
   		<table class="table">
   		  <tbody>
   		   <tr>
-          <td>
-
+             <td>
               <span>
                 <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-                <%= link_to book.title, book_path(@book.id) %>
+                <!--%= link_to book.title, book_path(@book.id) %>-->
               </span>
-          </td>
+             </td>
+
+             <td><%= link_to @user.name, user_path(@user) %></td>
+
+             <td>
+                <%= @book.title %>
+             </td>
+             <td><%= @book.body %></td>
 
 
-          <td>
-            <span><%= link_to book.title, books_path(@books.id) %></span>
-          </td>
+             <td>
+               <% if @user.id == current_user.id %>
+                <%= link_to "Edit", edit_book_path(@book) %>
+             </td>
 
+             <td>
+              <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか?"%>
+             </td>
+                <% end %>
 
-          <td>
-            <span><%= link_to book.body, books_path(@books.id) %></span>
-            </td>
-
-         </tr>
-        </tbody>
-      </table>
+            </tr>
+          </tbody>
+        </table>
     </div>
