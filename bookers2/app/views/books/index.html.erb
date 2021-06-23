@@ -16,7 +16,9 @@
  <div class="row">
   <div class="col-md-3">
       <!--部分テンプレート-->
-      <%= render "books/book", book: Book.new %>
+      <%= render "books/book", user: current_user, book: @book %>
+      
+      
   </div>
 
 
