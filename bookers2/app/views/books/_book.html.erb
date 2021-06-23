@@ -1,7 +1,7 @@
  <h2>User info</h2>
        <!--<img class="attachment user profile_image fallback"src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg">-->
        <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"%>
-       
+
       <table class="table">
        <tbody>
          <tr></tr>
@@ -21,7 +21,7 @@
         <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
          <span class= "fas fa-user-cog"></span>
         <% end %>
-         
+
        </div>
 
      <!--  左下  -->
