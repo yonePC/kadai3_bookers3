@@ -18,9 +18,10 @@ def create
   @book.user_id = current_user.id
       if @book.save
          redirect_to book_path(@book)
+         flash[:notice] = "You have created book successfully."
       else
          @books = Book.all
-         render action: :index
+         render :index
 
       end
 end
@@ -34,8 +35,13 @@ end
 def update
   book = Book.find(params[:id])
   book.update(book_params)
-  redirect_to book_path(book.id)
-
+    if @book.save
+     flash[:notice] = "You have updated book successfully."
+     redirect_to book_path(@book.id)
+    else
+      render :edit
+    end
+    #redirect_to book_path(book.id)
 end
 
 def destroy
@@ -47,7 +53,7 @@ end
 
   private
   def book_params
-    params.require(:book).permit(:title, :body , :user_id)
+    params.require(:book).permit(:title, :body, :user_id)
   end
 
 
