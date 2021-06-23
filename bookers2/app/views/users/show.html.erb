@@ -9,7 +9,7 @@
   <div class="row">
    <div class="col-md-3">
     <!--部分テンプレート-->
-    <%= render "books/book", user: @user, book: @book %>
+    <%= render "books/book", user: @user, book: @newbook %>
    </div>
 
    <div class="col-md-8 offset-md-1">
@@ -35,12 +35,12 @@
          <span><%= book.title %></span>
          <% end %>
         </td>
-        
+
         <td><span><%= book.body %></span></td>
       </tr>
      <% end %>
      </tbody>
-    
+
     </table>
    </div>
 
