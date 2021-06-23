@@ -18,15 +18,12 @@
          <li class="navbar-brand">
           <%= link_to 'Bookers', root_path %>
          </li>
-        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">-->
-         <!--<span class="navbar-toggler-icon"></span>-->
-        <!--</button>-->
+        
        <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
          <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
           　 <li>
             　 <li class="fas fa-home nav-link text-light">
-             　<!--li class="fas fa-home">-->
               <%= link_to 'Home', user_path(current_user)  %>
              </li>
            </li>
