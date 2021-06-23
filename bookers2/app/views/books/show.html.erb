@@ -1,18 +1,20 @@
-　　
-  
-  
-   <div class="container px-5 px-sm-0">
+
+    <p>
+   <% if flash[:notice] %>
+    <%= flash[:notice] %>
+   <% end %>
+  </p>
+
+<div class="container px-5 px-sm-0">
   <div class="row">
    <div class="col-md-3">
     <!--部分テンプレート-->
-      <%= render 'books/book', book: @book %>
-      <%= render "books/book", book: Book.new %>
-      <%= render "books/book", user: @user %>
+      <%= render "books/book", user: current_user, book: @newbook %>
    </div>
 
    <div class="col-md-8 offset-md-1">
-  		<h2>Book detail</h2>
-  		<table class="table">
+     <h2>Book detail</h2>
+       <table class="table">
   		  <tbody>
   		   <tr>
          <td>

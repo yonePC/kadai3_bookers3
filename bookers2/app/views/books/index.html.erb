@@ -1,5 +1,9 @@
 
-<%= flash[:notice] %>
+  <p>
+   <% if flash[:notice] %>
+    <%= flash[:notice] %>
+   <% end %>
+  </p>
 
 <div class="container px-5 px-sm-0">
  
