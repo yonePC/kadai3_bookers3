@@ -9,30 +9,22 @@
   <div class="row">
    <div class="col-md-3">
     <!--部分テンプレート-->
-      <%= render "books/book", user: current_user, book: @newbook %>
+     <%= render "books/book", user: current_user, book: @newbook %>
    </div>
 
    <div class="col-md-8 offset-md-1">
-     <h2>Book detail</h2>
-       <table class="table">
-  		  <tbody>
-  		   <tr>
-         <td>
-          <span>
-           <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-                <!--%= link_to book.title, book_path(@book.id) %>-->
-          </span>
-          </td>
-
+    <h2>Book detail</h2>
+      <table class="table">
+  		<tbody>
+  		 <tr>
+          <td><%= attachment_image_tag @user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %></td>
           <td><%= link_to @user.name, user_path(@user) %></td>
-
           <td>
-                <%= link_to book_path(@book.id) do %>
+             <%= link_to book_path(@book.id) do %>
              <%= @book.title %>
              <% end %>
           </td>
           <td><%= @book.body %></td>
-
 
           
           <% if @user.id == current_user.id %>
