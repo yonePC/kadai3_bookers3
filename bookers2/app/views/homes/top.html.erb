@@ -1,5 +1,9 @@
 
-<p id="notice"></p>
+<p>
+  <% if flash[:notice] %>
+     <%= flash[:notice] %>
+  <% end %>
+</p>
 
 <div class="container">
   <div class="row">
